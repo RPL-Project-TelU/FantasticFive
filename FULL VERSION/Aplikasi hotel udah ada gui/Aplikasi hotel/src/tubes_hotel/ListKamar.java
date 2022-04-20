@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package tubes_hotel;
 
 import java.awt.HeadlessException;
@@ -14,17 +9,12 @@ import java.util.Date;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author ASUS
- */
 public class ListKamar extends javax.swing.JFrame {
     Koneksi conn;
     Statement stm;
     DefaultListModel<String> listNama = new DefaultListModel<>();
-    /**
-     * Creates new form LISTKAMAR
-     */
+    LoginPage lp = new LoginPage();
+
     public ListKamar() {
         initComponents();
         conn = new Koneksi();
@@ -76,6 +66,7 @@ public class ListKamar extends javax.swing.JFrame {
         ubahButton = new javax.swing.JButton();
         hapusButton = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         dialogUbah.setBackground(new java.awt.Color(185, 2, 2));
 
@@ -303,6 +294,13 @@ public class ListKamar extends javax.swing.JFrame {
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText(":");
 
+        jButton1.setText("Back");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout LISTKAMARLayout = new javax.swing.GroupLayout(LISTKAMAR);
         LISTKAMAR.setLayout(LISTKAMARLayout);
         LISTKAMARLayout.setHorizontalGroup(
@@ -327,14 +325,17 @@ public class ListKamar extends javax.swing.JFrame {
                                     .addComponent(labelUmur, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(labelDurasi, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(LISTKAMARLayout.createSequentialGroup()
-                        .addGap(295, 295, 295)
-                        .addComponent(jLabel1))
-                    .addGroup(LISTKAMARLayout.createSequentialGroup()
                         .addGap(172, 172, 172)
                         .addComponent(ubahButton, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(100, 100, 100)
                         .addComponent(hapusButton, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(LISTKAMARLayout.createSequentialGroup()
+                .addGap(295, 295, 295)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(163, 163, 163))
             .addGroup(LISTKAMARLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(LISTKAMARLayout.createSequentialGroup()
                     .addGap(40, 40, 40)
@@ -361,8 +362,13 @@ public class ListKamar extends javax.swing.JFrame {
         LISTKAMARLayout.setVerticalGroup(
             LISTKAMARLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LISTKAMARLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jLabel1)
+                .addGroup(LISTKAMARLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(LISTKAMARLayout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jLabel1))
+                    .addGroup(LISTKAMARLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton1)))
                 .addGroup(LISTKAMARLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(LISTKAMARLayout.createSequentialGroup()
                         .addGap(133, 133, 133)
@@ -505,6 +511,13 @@ public class ListKamar extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_DurasiActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        lp.state = lp.state.AdminPanel;
+        System.out.println("Admin Panel");
+        new AdminPanel().setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     private void tampilData(){
         listNama.clear();
         try{
@@ -541,10 +554,6 @@ public class ListKamar extends javax.swing.JFrame {
     }
     
   
-    
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -575,6 +584,7 @@ public class ListKamar extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                System.out.println("List Kamar");
                 new ListKamar().setVisible(true);
                 
             }
@@ -591,6 +601,7 @@ public class ListKamar extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> bulanLahir;
     private javax.swing.JDialog dialogUbah;
     private javax.swing.JButton hapusButton;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;

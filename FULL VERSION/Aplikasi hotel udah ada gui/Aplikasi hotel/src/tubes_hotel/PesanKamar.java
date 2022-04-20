@@ -1,14 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package tubes_hotel;
 
-/**
- *
- * @author ASUS
- */
 
 import java.awt.HeadlessException;
 import java.sql.Statement;
@@ -17,13 +8,9 @@ import javax.swing.JOptionPane;
 public class PesanKamar extends javax.swing.JFrame {
     Koneksi conn;
     Statement stm;
-    /**
-     * Creates new form NewJFrame
-     */
     
     public PesanKamar() {
         initComponents();
-        Statement stm;
         conn = new Koneksi();
     }
 
@@ -303,7 +290,7 @@ public class PesanKamar extends javax.swing.JFrame {
     }
     
     private void buttonPesanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPesanActionPerformed
-        // TODO add your handling code here:
+
         try {
                     String sql = "INSERT INTO list_kamar (nama, tgl_lahir, durasi_nginep, jenis_kamar)"
                     + "VALUES ("
@@ -323,61 +310,12 @@ public class PesanKamar extends javax.swing.JFrame {
             System.err.println(ex.getMessage());
         }
         
-       /* String NAMA, JENIS_KELAMIN, JENIS_KAMAR, DURASI_MENGINAP, TOTAL_HARGA;
-        int TANGGAL_LAHIR;
-
-        NAMA = jTextField1.getText();
-        DURASI_MENGINAP = (String) LAMA.getSelectedItem();
-        
-        if(PRIA.isSelected()) {
-            JENIS_KELAMIN = "PRIA";
-        }
-        else{
-            JENIS_KELAMIN = "WANITA";
-        }
-        
-        if(VIP.isSelected()) {
-            JENIS_KAMAR = "VIP";
-            TOTAL_HARGA = "3000000";
-        }
-        else if(VVIP.isSelected()){
-            JENIS_KAMAR = "VVIP";
-            TOTAL_HARGA = "5000000";
-        }
-        else{
-            JENIS_KAMAR = "KING";
-            TOTAL_HARGA = "9000000";
-        }
-        
-        LABELPRICE.setText(TOTAL_HARGA);
-        
-        javax.swing.JOptionPane.showMessageDialog(this, "NAMA: " + NAMA + "\n"
-                                                    + "\nJENIS KELAMIN: " + JENIS_KELAMIN + "\n"
-                                                    + "\nDURASI MENGINAP: " + DURASI_MENGINAP + "\n"
-                                                    + "\nDI KAMAR: " + JENIS_KAMAR + "\n" + "\n=================="
-                                                    + "\nPEMBAYARAN: " + TOTAL_HARGA + "\n",
-                                                   
-                
-
-                                                    "PESANAN TERSIMPAN!" , javax.swing.JOptionPane.INFORMATION_MESSAGE);
-        
-        LISTKAMAR lg = new LISTKAMAR();
-        lg.setVisible(true);
-        lg.pack();
-        lg.setLocationRelativeTo(null);
-        lg.setDefaultCloseOperation(LISTKAMAR.EXIT_ON_CLOSE);
-
-        this.setState(1);
-        */
     }//GEN-LAST:event_buttonPesanActionPerformed
 
     private void inputNamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputNamaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_inputNamaActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -412,6 +350,7 @@ public class PesanKamar extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                System.out.println("Pesan Kamar");
                 new PesanKamar().setVisible(true);
             }
         });

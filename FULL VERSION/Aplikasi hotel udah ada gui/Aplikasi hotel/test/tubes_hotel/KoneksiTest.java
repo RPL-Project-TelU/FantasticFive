@@ -13,7 +13,10 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-
+/**
+ *
+ * @author rashaad
+ */
 public class KoneksiTest {
     
     public KoneksiTest() {
@@ -41,13 +44,15 @@ public class KoneksiTest {
     @Test
     public void testGetData() {
         System.out.println("getData");
-        String SQLString = "jdbc:mysql://localhost/hotel_tubes";
+        String SQLString = "";
         Koneksi instance = new Koneksi();
         ResultSet expResult = null;
         ResultSet result = instance.getData(SQLString);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
+       
     }
+
     /**
      * Test of query method, of class Koneksi.
      */
