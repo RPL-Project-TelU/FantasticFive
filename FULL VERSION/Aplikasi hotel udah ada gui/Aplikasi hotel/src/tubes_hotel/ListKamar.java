@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package tubes_hotel;
 
 import java.awt.HeadlessException;
@@ -14,17 +9,11 @@ import java.util.Date;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author ASUS
- */
 public class ListKamar extends javax.swing.JFrame {
     Koneksi conn;
     Statement stm;
     DefaultListModel<String> listNama = new DefaultListModel<>();
-    /**
-     * Creates new form LISTKAMAR
-     */
+
     public ListKamar() {
         initComponents();
         conn = new Koneksi();
@@ -558,11 +547,6 @@ public class ListKamar extends javax.swing.JFrame {
         }
     }
     
-  
-    
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

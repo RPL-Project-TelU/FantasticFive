@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package tubes_hotel;
 
 import java.sql.ResultSet;
@@ -13,10 +8,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-/**
- *
- * @author rashaad
- */
 public class KoneksiTest {
     
     public KoneksiTest() {
@@ -38,9 +29,6 @@ public class KoneksiTest {
     public void tearDown() {
     }
 
-    /**
-     * Test of getData method, of class Koneksi.
-     */
     @Test
     public void testGetData() {
         System.out.println("getData");
@@ -49,21 +37,14 @@ public class KoneksiTest {
         ResultSet expResult = null;
         ResultSet result = instance.getData(SQLString);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-       
     }
 
-    /**
-     * Test of query method, of class Koneksi.
-     */
     @Test
     public void testQuery() {
         System.out.println("Query");
         String SQLString = "jdbc:mysql://localhost/hotel_tubes";
         Koneksi instance = new Koneksi();
         instance.query(SQLString);
-        // TODO review the generated test code and remove the default call to fail.
- 
     }
     
 }
