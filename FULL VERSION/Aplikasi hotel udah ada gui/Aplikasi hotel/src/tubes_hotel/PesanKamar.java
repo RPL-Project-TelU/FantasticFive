@@ -1,5 +1,14 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package tubes_hotel;
 
+/**
+ *
+ * @author ASUS
+ */
 
 import java.awt.HeadlessException;
 import java.sql.Statement;
@@ -8,9 +17,13 @@ import javax.swing.JOptionPane;
 public class PesanKamar extends javax.swing.JFrame {
     Koneksi conn;
     Statement stm;
+    /**
+     * Creates new form NewJFrame
+     */
     
     public PesanKamar() {
         initComponents();
+        Statement stm;
         conn = new Koneksi();
     }
 
@@ -47,6 +60,8 @@ public class PesanKamar extends javax.swing.JFrame {
         VIP = new javax.swing.JRadioButton();
         VVIP = new javax.swing.JRadioButton();
         KING = new javax.swing.JRadioButton();
+        logout_btn = new javax.swing.JButton();
+        hitung_btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -58,7 +73,7 @@ public class PesanKamar extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel12.setText("HOMEPAGE");
+        jLabel12.setText("Pesan Kamar");
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
@@ -120,7 +135,7 @@ public class PesanKamar extends javax.swing.JFrame {
 
         LABELPRICE.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         LABELPRICE.setForeground(new java.awt.Color(255, 255, 255));
-        LABELPRICE.setText(" ");
+        LABELPRICE.setText("Rp ");
         LABELPRICE.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
         buttonPesan.setBackground(new java.awt.Color(255, 255, 255));
@@ -142,124 +157,133 @@ public class PesanKamar extends javax.swing.JFrame {
         JKAM.add(KING);
         KING.setText("KING");
 
+        logout_btn.setForeground(new java.awt.Color(185, 2, 2));
+        logout_btn.setText("Log Out");
+        logout_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logout_btnActionPerformed(evt);
+            }
+        });
+
+        hitung_btn.setText("Hitung");
+        hitung_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hitung_btnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout HOMEPACKLayout = new javax.swing.GroupLayout(HOMEPACK);
         HOMEPACK.setLayout(HOMEPACKLayout);
         HOMEPACKLayout.setHorizontalGroup(
             HOMEPACKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HOMEPACKLayout.createSequentialGroup()
                 .addGroup(HOMEPACKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(HOMEPACKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HOMEPACKLayout.createSequentialGroup()
-                            .addGap(268, 268, 268)
-                            .addComponent(buttonPesan, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(144, 144, 144))
-                        .addGroup(HOMEPACKLayout.createSequentialGroup()
-                            .addGap(127, 127, 127)
-                            .addGroup(HOMEPACKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel20)
-                                .addGroup(HOMEPACKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(HOMEPACKLayout.createSequentialGroup()
-                                        .addComponent(jLabel19)
-                                        .addGap(52, 52, 52)
-                                        .addGroup(HOMEPACKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(HOMEPACKLayout.createSequentialGroup()
-                                                .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(VIP)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(VVIP, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(KING, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(HOMEPACKLayout.createSequentialGroup()
-                                                .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(LABELPRICE, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addGroup(HOMEPACKLayout.createSequentialGroup()
-                                        .addGroup(HOMEPACKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(HOMEPACKLayout.createSequentialGroup()
-                                                .addComponent(jLabel18)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(Durasi, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, HOMEPACKLayout.createSequentialGroup()
-                                                .addGroup(HOMEPACKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLabel14)
-                                                    .addComponent(jLabel15))
-                                                .addGap(30, 30, 30)
-                                                .addGroup(HOMEPACKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(HOMEPACKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addGroup(HOMEPACKLayout.createSequentialGroup()
-                                                        .addComponent(TANGGAL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(18, 18, 18)
-                                                        .addComponent(BULAN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(18, 18, 18)
-                                                        .addComponent(TAHUN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                    .addComponent(inputNama, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                        .addGap(22, 22, 22))))))
                     .addGroup(HOMEPACKLayout.createSequentialGroup()
-                        .addGap(246, 246, 246)
-                        .addComponent(jLabel12)))
-                .addContainerGap(130, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addGroup(HOMEPACKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel15)
+                            .addComponent(jLabel20)
+                            .addComponent(jLabel19)
+                            .addComponent(jLabel18))
+                        .addGap(38, 38, 38)
+                        .addGroup(HOMEPACKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(buttonPesan, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(HOMEPACKLayout.createSequentialGroup()
+                                .addGroup(HOMEPACKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(42, 42, 42)
+                                .addGroup(HOMEPACKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(HOMEPACKLayout.createSequentialGroup()
+                                        .addComponent(hitung_btn)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(LABELPRICE, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(HOMEPACKLayout.createSequentialGroup()
+                                        .addGap(6, 6, 6)
+                                        .addComponent(TANGGAL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(BULAN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(TAHUN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(HOMEPACKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(Durasi, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(inputNama, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, HOMEPACKLayout.createSequentialGroup()
+                                            .addGap(26, 26, 26)
+                                            .addComponent(VIP)
+                                            .addGap(31, 31, 31)
+                                            .addComponent(VVIP)
+                                            .addGap(35, 35, 35)
+                                            .addComponent(KING)))))))
+                    .addGroup(HOMEPACKLayout.createSequentialGroup()
+                        .addGap(172, 172, 172)
+                        .addComponent(jLabel12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                        .addComponent(logout_btn)))
+                .addContainerGap())
         );
         HOMEPACKLayout.setVerticalGroup(
             HOMEPACKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HOMEPACKLayout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addComponent(jLabel12)
-                .addGap(88, 88, 88)
-                .addGroup(HOMEPACKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(inputNama, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addContainerGap()
                 .addGroup(HOMEPACKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HOMEPACKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(TANGGAL, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
-                        .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BULAN)
-                        .addComponent(TAHUN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(HOMEPACKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Durasi))
-                .addGap(18, 18, 18)
-                .addGroup(HOMEPACKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(VIP)
-                    .addComponent(VVIP)
-                    .addComponent(KING))
-                .addGap(18, 18, 18)
-                .addGroup(HOMEPACKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LABELPRICE))
-                .addGap(64, 64, 64)
+                    .addComponent(jLabel12)
+                    .addComponent(logout_btn))
+                .addGap(42, 42, 42)
+                .addGroup(HOMEPACKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(HOMEPACKLayout.createSequentialGroup()
+                        .addGroup(HOMEPACKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(inputNama, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(8, 8, 8)
+                        .addGroup(HOMEPACKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(TANGGAL)
+                            .addComponent(BULAN)
+                            .addComponent(TAHUN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10)
+                        .addGroup(HOMEPACKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Durasi))
+                        .addGap(11, 11, 11)
+                        .addGroup(HOMEPACKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(VIP)
+                            .addComponent(VVIP)
+                            .addComponent(KING))
+                        .addGap(25, 25, 25)
+                        .addGroup(HOMEPACKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(LABELPRICE)
+                            .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(hitung_btn))
+                        .addGap(47, 47, 47))
+                    .addGroup(HOMEPACKLayout.createSequentialGroup()
+                        .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(11, 11, 11)
+                        .addComponent(jLabel22)
+                        .addGap(13, 13, 13)
+                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(buttonPesan, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(141, 141, 141))
+                .addGap(147, 147, 147))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(HOMEPACK, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(HOMEPACK, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(HOMEPACK, javax.swing.GroupLayout.PREFERRED_SIZE, 628, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(HOMEPACK, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -290,7 +314,7 @@ public class PesanKamar extends javax.swing.JFrame {
     }
     
     private void buttonPesanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPesanActionPerformed
-
+        // TODO add your handling code here:
         try {
                     String sql = "INSERT INTO list_kamar (nama, tgl_lahir, durasi_nginep, jenis_kamar)"
                     + "VALUES ("
@@ -305,17 +329,38 @@ public class PesanKamar extends javax.swing.JFrame {
                                                     + "\nDURASI MENGINAP: " + Durasi.getSelectedItem() + "\n"
                                                     + "\nDI KAMAR: " + getJKAM() + "\n" + "\n==================",                                                               
                                                     "PESANAN TERSIMPAN!" , javax.swing.JOptionPane.INFORMATION_MESSAGE);
-                    this.setState(1);
         } catch (HeadlessException ex) {
             System.err.println(ex.getMessage());
         }
-        
     }//GEN-LAST:event_buttonPesanActionPerformed
 
     private void inputNamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputNamaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_inputNamaActionPerformed
 
+    private void logout_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logout_btnActionPerformed
+        // TODO add your handling code here:
+        new Home().setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_logout_btnActionPerformed
+
+    private void hitung_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hitung_btnActionPerformed
+        // TODO add your handling code here:
+        int hargaJenis = 0;
+        int hargaHari, totalHarga;
+        
+        if(VIP.isSelected()){hargaJenis = 100000;}
+        if(VVIP.isSelected()){hargaJenis = 200000;}
+        if(KING.isSelected()){hargaJenis = 300000;}
+        hargaHari = Durasi.getSelectedIndex() + 1;
+        totalHarga = hargaJenis * hargaHari;
+        
+        LABELPRICE.setText("Rp" + Integer.toString(totalHarga));
+    }//GEN-LAST:event_hitung_btnActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -350,7 +395,6 @@ public class PesanKamar extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                System.out.println("Pesan Kamar");
                 new PesanKamar().setVisible(true);
             }
         });
@@ -369,6 +413,7 @@ public class PesanKamar extends javax.swing.JFrame {
     private javax.swing.JRadioButton VIP;
     private javax.swing.JRadioButton VVIP;
     private javax.swing.JButton buttonPesan;
+    private javax.swing.JButton hitung_btn;
     private javax.swing.JTextField inputNama;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
@@ -381,5 +426,6 @@ public class PesanKamar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JButton logout_btn;
     // End of variables declaration//GEN-END:variables
 }
