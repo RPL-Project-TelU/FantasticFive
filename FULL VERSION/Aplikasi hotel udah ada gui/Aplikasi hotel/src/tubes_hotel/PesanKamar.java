@@ -1,14 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package tubes_hotel;
-
-/**
- *
- * @author ASUS
- */
 
 import java.awt.HeadlessException;
 import java.sql.Statement;
@@ -17,9 +7,6 @@ import javax.swing.JOptionPane;
 public class PesanKamar extends javax.swing.JFrame {
     Koneksi conn;
     Statement stm;
-    /**
-     * Creates new form NewJFrame
-     */
     
     public PesanKamar() {
         initComponents();
@@ -358,9 +345,6 @@ public class PesanKamar extends javax.swing.JFrame {
         LABELPRICE.setText("Rp" + Integer.toString(totalHarga));
     }//GEN-LAST:event_hitung_btnActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
