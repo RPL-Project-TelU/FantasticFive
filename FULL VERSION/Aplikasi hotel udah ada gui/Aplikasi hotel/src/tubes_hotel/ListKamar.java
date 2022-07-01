@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package tubes_hotel;
 
 import java.awt.HeadlessException;
@@ -9,12 +14,17 @@ import java.util.Date;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
+/**
+ *
+ * @author ASUS
+ */
 public class ListKamar extends javax.swing.JFrame {
     Koneksi conn;
     Statement stm;
     DefaultListModel<String> listNama = new DefaultListModel<>();
-    LoginPage lp = new LoginPage();
-
+    /**
+     * Creates new form LISTKAMAR
+     */
     public ListKamar() {
         initComponents();
         conn = new Koneksi();
@@ -31,10 +41,9 @@ public class ListKamar extends javax.swing.JFrame {
     private void initComponents() {
 
         dialogUbah = new javax.swing.JDialog();
-        jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
+        lblnama = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         updateNama = new javax.swing.JTextField();
@@ -66,11 +75,10 @@ public class ListKamar extends javax.swing.JFrame {
         ubahButton = new javax.swing.JButton();
         hapusButton = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        back_btn = new javax.swing.JButton();
 
         dialogUbah.setBackground(new java.awt.Color(185, 2, 2));
-
-        jPanel1.setBackground(new java.awt.Color(185, 2, 2));
+        dialogUbah.setMinimumSize(new java.awt.Dimension(576, 576));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -80,9 +88,9 @@ public class ListKamar extends javax.swing.JFrame {
         jLabel22.setForeground(new java.awt.Color(255, 255, 255));
         jLabel22.setText("JENIS KAMAR");
 
-        jLabel23.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel23.setText("NAMA");
+        lblnama.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblnama.setForeground(new java.awt.Color(255, 255, 255));
+        lblnama.setText("NAMA");
 
         jLabel24.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(255, 255, 255));
@@ -130,84 +138,73 @@ public class ListKamar extends javax.swing.JFrame {
         updateJKamarGroup.add(VIP);
         VIP.setText("VIP");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout dialogUbahLayout = new javax.swing.GroupLayout(dialogUbah.getContentPane());
+        dialogUbah.getContentPane().setLayout(dialogUbahLayout);
+        dialogUbahLayout.setHorizontalGroup(
+            dialogUbahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogUbahLayout.createSequentialGroup()
+                .addGap(57, 57, 57)
+                .addGroup(dialogUbahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dialogUbahLayout.createSequentialGroup()
+                        .addGroup(dialogUbahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel25)
                             .addComponent(jLabel22)
                             .addComponent(jLabel24)
-                            .addComponent(jLabel23))
+                            .addComponent(lblnama))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(dialogUbahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(updateNama)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(dialogUbahLayout.createSequentialGroup()
                                 .addComponent(tanggalLahir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(bulanLahir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(tahunLahir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(Durasi, 0, 286, Short.MAX_VALUE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(Durasi, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(dialogUbahLayout.createSequentialGroup()
                                 .addComponent(VIP)
                                 .addGap(18, 18, 18)
                                 .addComponent(VVIP, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(KING, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(220, 220, 220)
-                        .addComponent(saveUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(85, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel4)
-                .addGap(188, 188, 188))
+                    .addGroup(dialogUbahLayout.createSequentialGroup()
+                        .addGap(190, 190, 190)
+                        .addComponent(saveUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogUbahLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel4)
+                        .addGap(103, 103, 103)))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+        dialogUbahLayout.setVerticalGroup(
+            dialogUbahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogUbahLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel23, javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(dialogUbahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblnama, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(updateNama, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(dialogUbahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel24)
                     .addComponent(tanggalLahir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bulanLahir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tahunLahir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(dialogUbahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel25)
                     .addComponent(Durasi))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(dialogUbahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel22)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(dialogUbahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(VIP)
                         .addComponent(VVIP)
                         .addComponent(KING)))
                 .addGap(131, 131, 131)
                 .addComponent(saveUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(70, 70, 70))
-        );
-
-        javax.swing.GroupLayout dialogUbahLayout = new javax.swing.GroupLayout(dialogUbah.getContentPane());
-        dialogUbah.getContentPane().setLayout(dialogUbahLayout);
-        dialogUbahLayout.setHorizontalGroup(
-            dialogUbahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        dialogUbahLayout.setVerticalGroup(
-            dialogUbahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(50, 50, 50))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -294,10 +291,10 @@ public class ListKamar extends javax.swing.JFrame {
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText(":");
 
-        jButton1.setText("Back");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        back_btn.setText("Back");
+        back_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                back_btnActionPerformed(evt);
             }
         });
 
@@ -306,141 +303,119 @@ public class ListKamar extends javax.swing.JFrame {
         LISTKAMARLayout.setHorizontalGroup(
             LISTKAMARLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LISTKAMARLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addGroup(LISTKAMARLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(LISTKAMARLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LISTKAMARLayout.createSequentialGroup()
+                        .addComponent(jLabel12)
+                        .addGap(448, 448, 448))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LISTKAMARLayout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addGap(442, 442, 442))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LISTKAMARLayout.createSequentialGroup()
+                        .addGroup(LISTKAMARLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(labelDurasi, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(LISTKAMARLayout.createSequentialGroup()
+                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(labelJKamar, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(256, 256, 256))
+                    .addGroup(LISTKAMARLayout.createSequentialGroup()
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(LISTKAMARLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelUmur, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelNama, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(239, 239, 239))))
+            .addGroup(LISTKAMARLayout.createSequentialGroup()
                 .addGroup(LISTKAMARLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(LISTKAMARLayout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addGroup(LISTKAMARLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(LISTKAMARLayout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addGap(64, 64, 64)
-                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(labelJKamar, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(LISTKAMARLayout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(LISTKAMARLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(labelUmur, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(labelDurasi, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(362, 362, 362)
+                        .addComponent(hapusButton, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(ubahButton, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(LISTKAMARLayout.createSequentialGroup()
-                        .addGap(172, 172, 172)
-                        .addComponent(ubahButton, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(100, 100, 100)
-                        .addComponent(hapusButton, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(232, 232, 232)
+                        .addComponent(jLabel1)
+                        .addGap(207, 207, 207)
+                        .addComponent(back_btn)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(LISTKAMARLayout.createSequentialGroup()
-                .addGap(295, 295, 295)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(163, 163, 163))
             .addGroup(LISTKAMARLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(LISTKAMARLayout.createSequentialGroup()
-                    .addGap(40, 40, 40)
-                    .addGroup(LISTKAMARLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(LISTKAMARLayout.createSequentialGroup()
-                            .addGap(175, 175, 175)
-                            .addGroup(LISTKAMARLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 15, Short.MAX_VALUE)
-                                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addComponent(jLabel3)
-                        .addComponent(jLabel2))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(labelNama, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(LISTKAMARLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(LISTKAMARLayout.createSequentialGroup()
-                            .addGap(494, 494, 494)
-                            .addComponent(jLabel16)
-                            .addContainerGap(195, Short.MAX_VALUE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LISTKAMARLayout.createSequentialGroup()
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 187, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(183, 183, 183)))))
+                    .addGap(905, 905, 905)
+                    .addComponent(jLabel16)
+                    .addContainerGap(45, Short.MAX_VALUE)))
         );
         LISTKAMARLayout.setVerticalGroup(
             LISTKAMARLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LISTKAMARLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(LISTKAMARLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(LISTKAMARLayout.createSequentialGroup()
+                        .addComponent(back_btn)
+                        .addGap(18, 18, 18)
+                        .addGroup(LISTKAMARLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelNama, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(LISTKAMARLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabel2)))
+                .addGap(21, 21, 21)
+                .addGroup(LISTKAMARLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelUmur, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(9, 9, 9)
                 .addGroup(LISTKAMARLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(LISTKAMARLayout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(jLabel1))
-                    .addGroup(LISTKAMARLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButton1)))
-                .addGroup(LISTKAMARLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(LISTKAMARLayout.createSequentialGroup()
-                        .addGap(133, 133, 133)
+                        .addGap(26, 26, 26)
                         .addGroup(LISTKAMARLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
-                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LISTKAMARLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(labelUmur, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
-                        .addComponent(labelDurasi, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)))
-                .addGroup(LISTKAMARLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7)
+                            .addComponent(labelDurasi, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(LISTKAMARLayout.createSequentialGroup()
+                        .addGap(84, 84, 84)
                         .addGroup(LISTKAMARLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(169, 169, 169))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LISTKAMARLayout.createSequentialGroup()
-                        .addComponent(labelJKamar, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(179, 179, 179)))
+                            .addComponent(labelJKamar, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6))))
+                .addGap(18, 18, 18)
                 .addGroup(LISTKAMARLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ubahButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(hapusButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(116, Short.MAX_VALUE))
+                    .addComponent(hapusButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ubahButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(25, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LISTKAMARLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49))
             .addGroup(LISTKAMARLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(LISTKAMARLayout.createSequentialGroup()
-                    .addGap(112, 112, 112)
-                    .addGroup(LISTKAMARLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(LISTKAMARLayout.createSequentialGroup()
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jLabel16))
-                        .addGroup(LISTKAMARLayout.createSequentialGroup()
-                            .addGroup(LISTKAMARLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(labelNama, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(LISTKAMARLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel7)))
-                            .addGap(22, 22, 22)
-                            .addGroup(LISTKAMARLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addContainerGap(202, Short.MAX_VALUE)))
+                    .addGap(377, 377, 377)
+                    .addComponent(jLabel16)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(LISTKAMAR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(LISTKAMAR, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 724, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(LISTKAMAR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(LISTKAMAR, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void JlistkamarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JlistkamarMouseClicked
-        if(evt.getClickCount()==1){
-            TampilText();
-        }
-    }//GEN-LAST:event_JlistkamarMouseClicked
 
     public void clearText(){
         labelNama.setText(null);
@@ -449,26 +424,6 @@ public class ListKamar extends javax.swing.JFrame {
         labelDurasi.setText(null);
     }
     
-    private void ubahButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubahButtonActionPerformed
-        dialogUbah.show();
-    }//GEN-LAST:event_ubahButtonActionPerformed
-
-    private void hapusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hapusButtonActionPerformed
-        int app;
-        if ((app = JOptionPane.showConfirmDialog(null, "Anda yakin akan menghapus data "
-                + Jlistkamar.getSelectedValue()+ "?", "Perhatian", JOptionPane.YES_NO_OPTION)) == 0){
-            try {
-                String sql = "DELETE FROM list_kamar WHERE"
-                + " nama = '" + Jlistkamar.getSelectedValue()+ "'";
-                conn.query(sql);
-                JOptionPane.showMessageDialog(null, "Data Berhasil Dihapus");
-                tampilData();
-            }catch (HeadlessException ex) {
-                System.err.print(ex.getMessage());
-            }
-        }
-    }//GEN-LAST:event_hapusButtonActionPerformed
-
     public LocalDate getBornDate(){
         LocalDate born = LocalDate.of(
             Integer.parseInt(tahunLahir.getSelectedItem().toString()), 
@@ -511,12 +466,62 @@ public class ListKamar extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_DurasiActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        lp.state = lp.state.AdminPanel;
-        System.out.println("Admin Panel");
+    private void hapusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hapusButtonActionPerformed
+        int app;
+        if ((app = JOptionPane.showConfirmDialog(null, "Anda yakin akan menghapus data "
+            + Jlistkamar.getSelectedValue()+ "?", "Perhatian", JOptionPane.YES_NO_OPTION)) == 0){
+    try {
+        String sql = "DELETE FROM list_kamar WHERE"
+        + " nama = '" + Jlistkamar.getSelectedValue()+ "'";
+        conn.query(sql);
+        JOptionPane.showMessageDialog(null, "Data Berhasil Dihapus");
+        clearText();
+        tampilData();
+        }catch (HeadlessException ex) {
+            System.err.print(ex.getMessage());
+        }
+        }
+    }//GEN-LAST:event_hapusButtonActionPerformed
+
+    private void ubahButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubahButtonActionPerformed
+        dialogUbah.show();
+        dialogUbah.setLocationRelativeTo(null);
+        try{
+            String sql = "SELECT * FROM list_kamar WHERE nama = '"+ 
+                    (Jlistkamar.getSelectedValue()) +"'";
+            ResultSet rs = conn.getData(sql);
+            while(rs.next()){
+                String nama = rs.getString(1);
+                Date tglLahir = rs.getDate(2);
+                String durasiC = rs.getString(3);
+                String jkamar = rs.getString(4);
+                
+                updateNama.setText(nama);
+                tahunLahir.setSelectedItem(tglLahir.toString().substring(0, 4));
+                bulanLahir.setSelectedIndex(Integer.parseInt(tglLahir.toString().substring(5, 7))-1);
+                tanggalLahir.setSelectedItem(tglLahir.toString().substring(8, 10));
+                Durasi.setSelectedItem(durasiC);
+                if("VIP".equals(jkamar))VIP.setSelected(true);
+                if("VVIP".equals(jkamar))VVIP.setSelected(true);
+                if("King".equals(jkamar))KING.setSelected(true);
+                
+            }
+        } catch (SQLException ex) {
+            System.err.print(ex);
+        }
+    }//GEN-LAST:event_ubahButtonActionPerformed
+
+    private void JlistkamarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JlistkamarMouseClicked
+        if(evt.getClickCount()==1){
+            TampilText();
+        }
+    }//GEN-LAST:event_JlistkamarMouseClicked
+
+    private void back_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_btnActionPerformed
+        // TODO add your handling code here:
         new AdminPanel().setVisible(true);
         setVisible(false);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_back_btnActionPerformed
 
     private void tampilData(){
         listNama.clear();
@@ -524,7 +529,7 @@ public class ListKamar extends javax.swing.JFrame {
             String sql = "SELECT * FROM list_kamar";
             ResultSet rs = conn.getData(sql);
             while(rs.next()){
-                String nama = rs.getString(2);
+                String nama = rs.getString(1);
                 listNama.addElement(nama);
             }
             Jlistkamar.setModel(listNama);
@@ -539,10 +544,10 @@ public class ListKamar extends javax.swing.JFrame {
                     (Jlistkamar.getSelectedValue()) +"'";
             ResultSet rs = conn.getData(sql);
             while(rs.next()){
-                String nama = rs.getString(2);
-                String umur = rs.getString(3);
-                String durasi = rs.getString(4);
-                String jkamar = rs.getString(5);
+                String nama = rs.getString(1);
+                String umur = rs.getString(2);
+                String durasi = rs.getString(3);
+                String jkamar = rs.getString(4);
                 labelNama.setText(nama);
                 labelUmur.setText(umur);
                 labelDurasi.setText(durasi);
@@ -554,6 +559,10 @@ public class ListKamar extends javax.swing.JFrame {
     }
     
   
+    
+    /**
+     * @param args the command line arguments
+     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -584,7 +593,6 @@ public class ListKamar extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                System.out.println("List Kamar");
                 new ListKamar().setVisible(true);
                 
             }
@@ -598,17 +606,16 @@ public class ListKamar extends javax.swing.JFrame {
     private javax.swing.JPanel LISTKAMAR;
     private javax.swing.JRadioButton VIP;
     private javax.swing.JRadioButton VVIP;
+    private javax.swing.JButton back_btn;
     private javax.swing.JComboBox<String> bulanLahir;
     private javax.swing.JDialog dialogUbah;
     private javax.swing.JButton hapusButton;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
@@ -617,12 +624,12 @@ public class ListKamar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelDurasi;
     private javax.swing.JLabel labelJKamar;
     private javax.swing.JLabel labelNama;
     private javax.swing.JLabel labelUmur;
+    private javax.swing.JLabel lblnama;
     private javax.swing.JButton saveUpdate;
     private javax.swing.JComboBox<String> tahunLahir;
     private javax.swing.JComboBox<String> tanggalLahir;
