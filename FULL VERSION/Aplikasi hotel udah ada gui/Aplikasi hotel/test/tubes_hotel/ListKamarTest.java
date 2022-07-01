@@ -34,6 +34,7 @@ public class ListKamarTest {
         System.out.println("clearText");
         ListKamar instance = new ListKamar();
         instance.clearText();
+        
     }
 
     @Test
