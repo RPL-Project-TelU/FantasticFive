@@ -40,7 +40,7 @@ public class DriverTest {
     public void testGetTxtName() {
         System.out.println("getTxtName");
         Driver instance = new Driver();
-        String expResult = "";
+        String expResult = "nick";
         String result = instance.getTxtName();
         assertEquals(expResult, result);
     }

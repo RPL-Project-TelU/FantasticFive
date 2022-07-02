@@ -459,13 +459,13 @@ public class ListKamar extends javax.swing.JFrame {
         int app;
         if ((app = JOptionPane.showConfirmDialog(null, "Anda yakin akan menghapus data "
             + Jlistkamar.getSelectedValue()+ "?", "Perhatian", JOptionPane.YES_NO_OPTION)) == 0){
-    try {
-        String sql = "DELETE FROM list_kamar WHERE"
-        + " nama = '" + Jlistkamar.getSelectedValue()+ "'";
-        conn.query(sql);
-        JOptionPane.showMessageDialog(null, "Data Berhasil Dihapus");
-        clearText();
-        tampilData();
+        try {
+            String sql = "DELETE FROM list_kamar WHERE"
+            + " nama = '" + Jlistkamar.getSelectedValue()+ "'";
+            conn.query(sql);
+            clearText();
+            tampilData();
+            JOptionPane.showMessageDialog(null, "Data Berhasil Dihapus");
         }catch (HeadlessException ex) {
             System.err.print(ex.getMessage());
         }
