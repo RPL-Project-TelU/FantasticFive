@@ -3,7 +3,6 @@ package tubes_hotel;
 import java.awt.HeadlessException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.Date;
 import javax.swing.DefaultListModel;
@@ -11,7 +10,6 @@ import javax.swing.JOptionPane;
 
 public class ListKamar extends javax.swing.JFrame {
     Koneksi conn;
-    Statement stm;
     DefaultListModel<String> listNama = new DefaultListModel<>();
 
     public ListKamar() {
