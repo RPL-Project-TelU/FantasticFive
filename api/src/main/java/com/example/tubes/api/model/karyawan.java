@@ -1,7 +1,7 @@
 package com.example.tubes.api.model;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "karyawan")
@@ -11,12 +11,12 @@ public class karyawan {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nama, posisi, gender;
-    private Date tgl_lahir;
+    private LocalDate tgl_lahir;
 
     public karyawan() {
     }
 
-    public karyawan(String nama, String posisi, String gender, Date tgl_lahir) {
+    public karyawan(String nama, String posisi, String gender, LocalDate tgl_lahir) {
         this.nama = nama;
         this.posisi = posisi;
         this.gender = gender;
@@ -40,8 +40,8 @@ public class karyawan {
         this.gender = gender;
     }
 
-    public Date getTgl_lahir() {return tgl_lahir;}
-    public void setTgl_lahir(Date tgl_lahir) {
+    public LocalDate getTgl_lahir() {return tgl_lahir;}
+    public void setTgl_lahir(LocalDate tgl_lahir) {
         this.tgl_lahir = tgl_lahir;
     }
 }
